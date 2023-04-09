@@ -62,6 +62,7 @@ public class Line {
         }
         return ((int) (A / B * 57));
     }
+
     static Set<Line> getLinesByPoints(List<Point> points) {
         Set<Line> lines = new HashSet<>();
         for (Point i : points) {
