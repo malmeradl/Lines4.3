@@ -18,7 +18,7 @@ public class Main {
         System.out.println("5 - clear the file ");
 
         System.out.print("\nInput: ");
-        int choice = in.nextInt();
+        int choice = Integer.parseInt(in.nextLine());
 
         while (choice != 0) {
 
@@ -32,7 +32,7 @@ public class Main {
                 }
                 case 2 -> {
                     System.out.println("input x and y for point: ");
-                    file.addPoint(in.nextDouble(), in.nextDouble());
+                    file.addPoint(Double.parseDouble(in.nextLine()), Double.parseDouble(in.nextLine()));
                 }
                 case 3 -> {
                     System.out.print("Index of the point to be deleted: ");
@@ -50,7 +50,7 @@ public class Main {
                 }
             }
             System.out.print("\nInput: ");
-            choice = in.nextInt();
+            choice = Integer.parseInt(in.nextLine());
         }
         in.close();
     }
