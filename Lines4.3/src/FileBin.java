@@ -24,7 +24,7 @@ public class FileBin implements Serializable {
 
     void addPoint(double x, double y) {
         points.add(new Point(x, y));
-        writeInFile();
+       // writeInFile();
     }
 
     void writeInFile() {
