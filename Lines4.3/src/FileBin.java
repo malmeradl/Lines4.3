@@ -24,8 +24,9 @@ public class FileBin implements Serializable {
 
     void addPoint(double x, double y) {
         points.add(new Point(x, y));
-       // writeInFile();
+        writeInFile();
     }
+
 
     void writeInFile() {
         try {
@@ -39,12 +40,13 @@ public class FileBin implements Serializable {
         }
     }
 
-    void deleteByIndex(int index) {
+    void deletePointByIndex(int index) {
         if (points.size() < index) {
             System.err.println("No such index in List.");
         } else {
             points.remove(index);
         }
+        writeInFile();
     }
 
 }

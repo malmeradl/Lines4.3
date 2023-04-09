@@ -55,7 +55,7 @@ public class Line {
         if (this.A == 0 && this.B != 0 && this.C == 0) {
             return ((int) (this.B * 23));
         }
-        if (this.A == 0 && this.B != 0 && this.C != 0) {//
+        if (this.A == 0 && this.B != 0 && this.C != 0) {
             return ((int) (this.B / this.C * 61));
         }
         if (this.A != 0 && this.B == 0 && this.C == 0) {
@@ -67,6 +67,6 @@ public class Line {
         if (this.A != 0 && this.B != 0 && this.C == 0) {
             return ((int) (this.A / this.B * 51));
         }
-        return  ((int)(A/ B * 57));
+        return ((int) (A / B * 57));
     }
 }

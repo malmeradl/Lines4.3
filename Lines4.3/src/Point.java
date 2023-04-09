@@ -11,7 +11,7 @@ public class Point implements Serializable {
 
     @Override
     public String toString() {
-        return " x(" + x + ") y(" + y + ")";
+        return "x(" + x + ") y(" + y + ")";
     }
 
     static boolean isEquals(Point p1, Point p2) {
