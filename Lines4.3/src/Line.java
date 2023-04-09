@@ -1,3 +1,7 @@
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Line {
     double A;
     double B;
@@ -19,32 +23,21 @@ public class Line {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
-            System.out.println("обькты одинаковы");
             return true;
         }
-        if (!(obj instanceof Line)) {
-            System.out.println("[ebnf]");
+        if (!(obj instanceof Line line2)) {
             return false;
         } else {
-            Line line2 = (Line) obj;
-            System.out.println("---------------------");
-            System.out.println(this.toString());
-            System.out.println(line2.toString());
-
-            if (this.B == 0 && line2.B == 0 && Double.compare(this.A / line2.A, this.C / line2.C) == 0) {
-                System.out.println("--------одинаковые---------");
+            if (this.B == 0 && line2.B == 0 && Double.compare(this.A / line2.A, this.C / line2.C) == 0) {//если B равны 0
                 return true;
             } else if (this.A / this.B != line2.A / line2.B) {// Проверяем пропорциональность угловых коэффициентов
-                System.out.println("ваще разные");
                 return false;
             } else if (this.C / this.B != line2.C / line2.B) {// Проверяем пропорциональность сдвигов
-                System.out.println("сдвиг");
                 return false;
             }
             // Если угловые коэффициенты и сдвиги пропорциональны,
             // то прямые считаем равными
             else {
-                System.out.println("одинаковые");
                 return true;
             }
         }
@@ -68,5 +61,16 @@ public class Line {
             return ((int) (this.A / this.B * 51));
         }
         return ((int) (A / B * 57));
+    }
+    static Set<Line> getLinesByPoints(List<Point> points) {
+        Set<Line> lines = new HashSet<>();
+        for (Point i : points) {
+            for (Point j : points) {
+                if (!Point.isEquals(i, j)) {
+                    lines.add(new Line(i, j));
+                }
+            }
+        }
+        return lines;
     }
 }

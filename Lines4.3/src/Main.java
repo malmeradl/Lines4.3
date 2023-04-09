@@ -15,6 +15,7 @@ public class Main {
         System.out.println("2 - add point");
         System.out.println("3 - delete point by index");
         System.out.println("4 - print lines ");
+        System.out.println("5 - clear the file ");
 
         System.out.print("\nInput: ");
         int choice = in.nextInt();
@@ -38,8 +39,11 @@ public class Main {
                     file.deletePointByIndex(in.nextInt());
                 }
                 case 4 -> {
-                    lines = Main.getLinesByPoints(file.points);
+                    lines = Line.getLinesByPoints(file.points);
                     Main.printSet(lines);
+                }
+                case 5 -> {
+                    file.clearTheFile();
                 }
                 default -> {
                     System.out.println("No such command.");
@@ -57,16 +61,6 @@ public class Main {
         }
     }
 
-    static Set<Line> getLinesByPoints(List<Point> points) {
-        Set<Line> lines = new HashSet<>();
-        for (Point i : points) {
-            for (Point j : points) {
-                if (!Point.isEquals(i, j)) {
-                    lines.add(new Line(i, j));
-                }
-            }
-        }
-        return lines;
-    }
+
 
 }

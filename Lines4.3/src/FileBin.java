@@ -49,4 +49,9 @@ public class FileBin implements Serializable {
         writeInFile();
     }
 
+    void clearTheFile(){
+        points.clear();
+        writeInFile();
+    }
+
 }
