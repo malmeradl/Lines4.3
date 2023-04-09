@@ -52,11 +52,21 @@ public class Line {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (int) A;
-        result = prime * result + (int) B;
-        result = prime * result + (int) C;
-        return result;
+        if (this.A == 0 && this.B != 0 && this.C == 0) {
+            return ((int) (this.B * 23));
+        }
+        if (this.A == 0 && this.B != 0 && this.C != 0) {//
+            return ((int) (this.B / this.C * 61));
+        }
+        if (this.A != 0 && this.B == 0 && this.C == 0) {
+            return ((int) (this.A * 19));
+        }
+        if (this.A != 0 && this.B == 0 && this.C != 0) {
+            return ((int) (this.A / this.C * 31));
+        }
+        if (this.A != 0 && this.B != 0 && this.C == 0) {
+            return ((int) (this.A / this.B * 51));
+        }
+        return  ((int)(A/ B * 57));
     }
 }
